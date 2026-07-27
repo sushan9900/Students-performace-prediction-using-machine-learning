@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ── Primary SEO Meta ──────────────────────────────────────────────── -->
+    <title>EduAnalytics — Student Performance Intelligence Platform</title>
+    <meta
+      name="description"
+      content="Enterprise-grade student performance prediction and analytics platform powered by Machine Learning. Identify at-risk students, track academic trends, and drive data-informed outcomes."
+    />
+    <meta name="keywords" content="student performance prediction, machine learning, educational analytics, academic risk assessment, AI education" />
+    <meta name="author" content="EduAnalytics" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0c12" />
+
+    <!-- ── Open Graph ────────────────────────────────────────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EduAnalytics — Student Performance Intelligence" />
+    <meta property="og:description" content="Predict student outcomes, assess academic risk, and explore institutional analytics with AI-powered insights." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="EduAnalytics" />
+
+    <!-- ── Twitter Card ──────────────────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EduAnalytics — Student Performance Intelligence" />
+    <meta name="twitter:description" content="Predict student outcomes, assess academic risk, and explore institutional analytics." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- ── Favicon ───────────────────────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <!-- ── Font Preconnects ──────────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ── Google Fonts: Inter + JetBrains Mono ─────────────────────────── -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ── Critical Inline Styles (prevent FOUC on dark bg) ─────────────── -->
+    <style>
+      /* Prevent flash of white background before React mounts */
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        background-color: #0a0c12;
+        min-height: 100vh;
+      }
+
+      /* Initial loading screen shown before JS bundle executes */
+      #app-loader {
+        position: fixed;
+        inset: 0;
+        background: #0a0c12;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        gap: 20px;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+
+      #app-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loader-logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 40px rgba(99,102,241,0.4);
+        animation: loader-pulse 1.6s ease-in-out infinite;
+      }
+
+      .loader-logo svg {
+        width: 28px;
+        height: 28px;
+        fill: none;
+        stroke: white;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .loader-wordmark {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #f1f5f9;
+        letter-spacing: -0.02em;
+      }
+
+      .loader-wordmark span {
+        color: #818cf8;
+      }
+
+      .loader-spinner {
+        width: 28px;
+        height: 28px;
+        border: 2.5px solid rgba(99,102,241,0.2);
+        border-top-color: #6366f1;
+        border-radius: 50%;
+        animation: loader-spin 0.8s linear infinite;
+      }
+
+      .loader-caption {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 12px;
+        color: #475569;
+        letter-spacing: 0.04em;
+      }
+
+      @keyframes loader-spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes loader-pulse {
+        0%, 100% { box-shadow: 0 0 32px rgba(99,102,241,0.35); transform: scale(1); }
+        50%       { box-shadow: 0 0 48px rgba(99,102,241,0.55); transform: scale(1.04); }
+      }
+
+      /* Light mode support via OS preference before React loads */
+      @media (prefers-color-scheme: light) {
+        html.system-theme, body.system-theme, #root.system-theme {
+          background-color: #f8faff;
+        }
+        #app-loader.system-theme {
+          background: #f8faff;
+        }
+        .loader-wordmark.system-theme { color: #0f172a; }
+        .loader-caption.system-theme  { color: #94a3b8; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ── App Mount Point ───────────────────────────────────────────────── -->
+    <div id="root"></div>
+
+    <!-- ── Initial Loading Screen ────────────────────────────────────────── -->
+    <div id="app-loader" aria-label="Loading EduAnalytics platform" role="status">
+      <div class="loader-logo" aria-hidden="true">
+        <!-- Graduation Cap Icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      </div>
+      <div class="loader-wordmark">
+        Edu<span>Analytics</span>
+      </div>
+      <div class="loader-spinner" aria-hidden="true"></div>
+      <p class="loader-caption">Initializing Intelligence Platform…</p>
+    </div>
+
+    <!-- ── Noscript Fallback ───────────────────────────────────────────────── -->
+    <noscript>
+      <style>
+        #app-loader { display: none; }
+        body { font-family: 'Inter', sans-serif; color: #f1f5f9; background: #0a0c12; display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 2rem; }
+      </style>
+      <div style="max-width:480px;">
+        <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.75rem;">JavaScript Required</h1>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.6;">EduAnalytics requires JavaScript to run. Please enable JavaScript in your browser settings to continue.</p>
+      </div>
+    </noscript>
+
+    <!-- ── React Entry Point ──────────────────────────────────────────────── -->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- ── Hide loader once React renders ───────────────────────────────── -->
+    <script>
+      // Hide the initial loading screen after React has mounted
+      // React will dispatch a custom event when App is rendered
+      window.__hideLoader = function() {
+        var loader = document.getElementById('app-loader');
+        if (loader) {
+          loader.classList.add('hidden');
+          setTimeout(function() {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 400);
+        }
+      };
+
+      // Fallback: always hide after 5 seconds regardless
+      setTimeout(window.__hideLoader, 5000);
+
+      // Persist theme preference across hard reloads (before React hydration)
+      (function() {
+        try {
+          var theme = localStorage.getItem('edu-theme');
+          var root = document.documentElement;
+          if (theme === 'light') {
+            root.classList.add('light');
+          }
+          // else stays dark (default)
+        } catch(e) {}
+      })();
+    </script>
+  </body>
+</html>

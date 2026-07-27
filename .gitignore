@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Environment files
+.env
+*.env.local
+
+# ML model artifacts (large binary files — train locally)
+models/*.joblib
+models/*.pkl
+
+# SQLite database files
+*.db
+*.sqlite3
+
+# Reports / generated images
+reports/*.png
+reports/*.jpg
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.user
+
+# Node.js
+node_modules/
+frontend/dist/
+frontend/.env
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db

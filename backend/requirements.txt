@@ -1,0 +1,59 @@
+# ==============================================================================
+# STUDENT PERFORMANCE PREDICTION SYSTEM - BACKEND DEPENDENCIES
+# ==============================================================================
+# File Purpose : Defines exact Python package versions required for running
+#                the FastAPI web server, database interactions, machine learning
+#                model training, evaluation, and background predictions.
+# Python Ver   : Python 3.12+
+# Dependencies : Core Web API, Database ORM, Data Processing & Machine Learning
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Web Framework & Async Server
+# ------------------------------------------------------------------------------
+fastapi>=0.111.0          # High-performance asynchronous Web API framework
+uvicorn[standard]>=0.30.0 # Lightning-fast ASGI server implementation for running FastAPI
+python-multipart>=0.0.9   # Required by FastAPI to process HTTP multipart/form-data CSV file uploads
+
+# ------------------------------------------------------------------------------
+# 2. Data Validation & Environment Settings
+# ------------------------------------------------------------------------------
+pydantic>=2.7.0           # Data validation and settings management using Python type annotations
+pydantic-settings>=2.3.0  # Application settings management via environment variables
+
+# ------------------------------------------------------------------------------
+# 3. Database & Object-Relational Mapping (ORM)
+# ------------------------------------------------------------------------------
+sqlalchemy>=2.0.30        # Comprehensive SQL toolkit and ORM for database modeling
+psycopg2-binary>=2.9.9    # PostgreSQL database adapter driver
+alembic>=1.13.1           # Database migration tool for SQLAlchemy schemas
+supabase>=2.4.0           # Supabase Python client for Database & Authentication
+
+# ------------------------------------------------------------------------------
+# 4. Data Processing, Analysis & Mathematics
+# ------------------------------------------------------------------------------
+pandas>=2.0.0             # High-performance data manipulation, CSV parsing, and DataFrame operations
+numpy>=1.24.0             # Fundamental scientific computing package for array operations and linear algebra
+
+# ------------------------------------------------------------------------------
+# 5. Machine Learning & Model Persistence
+# ------------------------------------------------------------------------------
+scikit-learn>=1.3.0       # Machine learning library: Random Forest, Decision Tree, Logistic Regression, SVM, KNN, Naive Bayes
+joblib>=1.4.2             # Lightweight pipeline serialization & model artifact saving/loading (.joblib)
+
+# ------------------------------------------------------------------------------
+# 6. Visualization & Reporting Helpers
+# ------------------------------------------------------------------------------
+matplotlib>=3.9.0         # Graph plotting library for server-side evaluation charts
+seaborn>=0.13.2           # Statistical data visualization based on matplotlib
+
+# ------------------------------------------------------------------------------
+# 7. Utilities & Security
+# ------------------------------------------------------------------------------
+python-dotenv>=1.0.1      # Reads key-value pairs from a .env file and sets them as environment variables
+
+# ------------------------------------------------------------------------------
+# 8. Testing & Quality Assurance
+# ------------------------------------------------------------------------------
+pytest>=8.2.0             # Testing framework for running backend API unit & integration tests
+httpx>=0.27.0             # Async HTTP client required by FastAPI TestClient for API endpoints testing
