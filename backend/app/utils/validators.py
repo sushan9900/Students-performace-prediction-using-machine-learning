@@ -41,30 +41,6 @@ def validate_dataset_schema(df: pd.DataFrame, target_col: str = "PerformanceCate
     """
     Validates if a Pandas DataFrame contains the necessary feature columns for student prediction.
     
-    Why it exists:
-    --------------
-    Allows flexible CSV column names by matching headers against known feature aliases,
-    ensuring machine learning preprocessors receive expected inputs.
-    
-    Inputs : 
-        df (pd.DataFrame): Uploaded student dataset DataFrame.
-        target_col (str) : Desired classification target column name.
-        
-    Outputs: 
-        Tuple[bool, List[str], Dict[str, str]]:
-        - bool: True if dataset schema is valid for training.
-        - List[str]: List of validation warning/error messages.
-        - Dict[str, str]: Mapping of canonical feature key to actual CSV column header.
-        
-    Execution Flow:
-    1. Normalizes CSV headers to lowercase for comparison.
-    2. Identifies matching columns for all 12 input features.
-    3. Checks if the target column exists.
-    4. Ensures row count >= 10 for cross-validation splits.
-    """
-    messages: List[str] = []
-    column_mapping: Dict[str, str] = {}
-    actual_columns_lower = {col.lower().strip(): col for col in df.columns}
 
     # 1. Feature Columns Match
     for canonical_feature, aliases in REQUIRED_FEATURE_ALIASES.items():
@@ -108,17 +84,6 @@ def check_dataset_health(df: pd.DataFrame) -> Dict[str, Any]:
     """
     Computes quick health metrics for an uploaded DataFrame.
     
-    Why it exists:
-    --------------
-    Provides raw metrics on missing cell counts, duplicate row counts, and data shapes.
-    
-    Inputs : df (pd.DataFrame): Dataset DataFrame.
-    Outputs: Dict[str, Any]: Health metrics dict.
-    """
-    total_cells = df.size
-    missing_cells = int(df.isnull().sum().sum())
-    missing_percentage = round((missing_cells / total_cells) * 100, 2) if total_cells > 0 else 0.0
-    duplicate_rows = int(df.duplicated().sum())
 
     return {
         "total_rows": len(df),

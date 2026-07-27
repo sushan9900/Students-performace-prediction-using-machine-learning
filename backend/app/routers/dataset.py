@@ -43,26 +43,6 @@ def upload_dataset(
     """
     HTTP POST /api/v1/dataset/upload
     
-    Why it exists:
-    --------------
-    Allows teachers and students to upload custom CSV datasets to the server.
-    
-    Inputs : file (UploadFile): Uploaded CSV file.
-             db (Session): Database session.
-    Outputs: DatasetMetadataResponse: Saved dataset metadata.
-    """
-    db_dataset = dataset_service.upload_dataset(file, db)
-    return DatasetMetadataResponse(
-        id=db_dataset.id,
-        filename=db_dataset.filename,
-        file_path=db_dataset.file_path,
-        row_count=db_dataset.row_count,
-        column_count=db_dataset.column_count,
-        columns_list=db_dataset.columns_list,
-        file_size_bytes=db_dataset.file_size_bytes,
-        uploaded_at=db_dataset.uploaded_at.isoformat(),
-        is_active=db_dataset.is_active
-    )
 
 
 @router.get(

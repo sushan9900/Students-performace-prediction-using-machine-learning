@@ -41,15 +41,6 @@ def train_models(
     """
     HTTP POST /api/v1/ml/train
     
-    Why it exists:
-    --------------
-    Triggers automated model training, evaluation, and multi-algorithm comparison.
-    
-    Inputs : request (TrainModelRequest): Training hyperparameter request body.
-             db (Session): Database session.
-    Outputs: ModelComparisonResponse: Evaluation metrics for all algorithms.
-    """
-    return ml_service.train_models(request, db)
 
 
 @router.get(

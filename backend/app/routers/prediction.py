@@ -41,15 +41,6 @@ def predict_single_student(
     """
     HTTP POST /api/v1/predict/single
     
-    Why it exists:
-    --------------
-    Powers the real-time student form predictor interface on the React frontend.
-    
-    Inputs : request (SinglePredictionRequest): Student input features payload.
-             db (Session): Database session.
-    Outputs: PredictionResponse: Predicted category and category probability map.
-    """
-    return prediction_service.predict_single_student(request, db)
 
 
 @router.post(

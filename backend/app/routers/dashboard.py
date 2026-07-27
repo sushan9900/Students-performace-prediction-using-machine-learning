@@ -35,12 +35,3 @@ def get_dashboard_stats(
     """
     HTTP GET /api/v1/dashboard/stats
     
-    Why it exists:
-    --------------
-    Provides all summary statistics and chart visualization arrays required by the
-    main frontend Dashboard page in a single efficient HTTP call.
-    
-    Inputs : db (Session): Database session.
-    Outputs: Dict[str, Any]: Aggregated dashboard statistics dictionary.
-    """
-    return dashboard_service.get_dashboard_statistics(db)

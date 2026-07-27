@@ -22,11 +22,6 @@ class Settings(BaseSettings):
     """
     Application Settings Class.
     
-    Why it exists:
-    --------------
-    Instead of hardcoding settings or using raw os.getenv() calls throughout the codebase,
-    this class provides a strongly-typed, validated, and centralized configuration schema.
-    """
 
     # --------------------------------------------------------------------------
     # 1. Project Basic Metadata

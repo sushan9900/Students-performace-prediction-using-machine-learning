@@ -64,12 +64,6 @@ class Base(DeclarativeBase):
     """
     Base class for all SQLAlchemy ORM database models in app/database/models.py.
     
-    Why it exists:
-    --------------
-    SQLAlchemy models inherit from Base so that the metadata registry can track
-    all database tables and automatically create them via Base.metadata.create_all(bind=engine).
-    """
-    pass
 
 
 # ------------------------------------------------------------------------------
@@ -79,21 +73,3 @@ def get_db() -> Generator:
     """
     FastAPI dependency that provides a database session to API route handlers.
     
-    Why it exists:
-    --------------
-    Ensures that every API request gets its own isolated database session and that
-    the session is guaranteed to close even if an unhandled exception occurs during request execution.
-    
-    Inputs : None
-    Outputs: Yields a SQLAlchemy Session object to the caller route handler.
-    
-    Execution Flow:
-    1. Instantiates a new SessionLocal() object.
-    2. Yields the session to the FastAPI endpoint handler.
-    3. Executes the finally block after response generation, calling db.close().
-    """
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()

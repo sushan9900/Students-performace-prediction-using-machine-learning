@@ -29,12 +29,6 @@ class DatasetModel(Base):
     """
     Table: datasets
     
-    Why it exists:
-    --------------
-    Stores metadata regarding CSV datasets uploaded by teachers or students,
-    including file locations, record counts, and column schemas.
-    """
-    __tablename__ = "datasets"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     filename = Column(String(255), nullable=False)
@@ -65,14 +59,6 @@ class MLModelArtifact(Base):
     """
     Table: ml_models
     
-    Why it exists:
-    --------------
-    Stores details of trained Machine Learning models (Random Forest, Decision Tree,
-    Logistic Regression, SVM, KNN, Naive Bayes), their serialised disk path,
-    and extensive performance metrics (Accuracy, Precision, Recall, F1, CV score,
-    Confusion Matrix, Feature Importance).
-    """
-    __tablename__ = "ml_models"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     model_name = Column(String(100), nullable=False)  # Display Name (e.g., 'Random Forest (Primary)')
@@ -122,13 +108,6 @@ class PredictionRecord(Base):
     """
     Table: predictions
     
-    Why it exists:
-    --------------
-    Logs every prediction performed by teachers or students, saving input features
-    (Attendance, Study Hours, Previous Semester Marks, etc.) alongside predicted grade outcome
-    and confidence scores for auditing and historical analysis.
-    """
-    __tablename__ = "predictions"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     student_identifier = Column(String(100), nullable=True, default="Anonymous Student")
@@ -162,12 +141,6 @@ class DashboardSummary(Base):
     """
     Table: dashboard_stats
     
-    Why it exists:
-    --------------
-    Stores cached aggregate metrics for fast loading of student performance
-    overview metrics and historical counters on the main frontend dashboard.
-    """
-    __tablename__ = "dashboard_stats"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     total_datasets = Column(Integer, default=0, nullable=False)
